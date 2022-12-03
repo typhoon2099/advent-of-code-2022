@@ -17,17 +17,10 @@ pub fn top_three_calories() -> usize {
 }
 
 fn elves() -> Vec<Vec<usize>> {
-    load_data()
+    include_str!("../data/day01.txt")
         .split("\n\n")
-        .collect::<Vec<&str>>()
-        .into_iter()
         .map(string_to_calories)
         .collect()
-}
-
-fn load_data() -> String {
-    String::from_utf8(include_bytes!("../data/day01.txt").to_vec())
-        .unwrap()
 }
 
 fn string_to_calories(raw: &str) ->  Vec<usize> {
