@@ -18,11 +18,13 @@ pub fn top_three_calories() -> usize {
 
 fn elves() -> Vec<Vec<usize>> {
     include_str!("../data/day01.txt")
+        .strip_suffix('\n')
+        .unwrap()
         .split("\n\n")
         .map(string_to_calories)
         .collect()
 }
 
 fn string_to_calories(raw: &str) ->  Vec<usize> {
-    raw.split('\n').map(|x| x.parse::<usize>().unwrap_or(0)).collect()
+    raw.lines().map(|x| x.parse::<usize>().unwrap()).collect()
 }

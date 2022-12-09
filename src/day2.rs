@@ -36,11 +36,11 @@ fn scores(score_table: HashMap<&str, usize>) -> usize {
     let data = include_str!("../data/day02.txt");
 
     let games: Vec<&str> = data
-        .split('\n')
+        .lines()
         .collect();
 
     games
         .iter()
-        .map(|x| score_table.get(x).unwrap_or(&0))
+        .map(|x| score_table.get(x).unwrap())
         .sum()
 }
